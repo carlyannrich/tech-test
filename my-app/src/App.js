@@ -7,6 +7,13 @@ import ResultBox from './components/ResultBox/index';
 import imgSrc from './assets/logo.png';
 
 function App() {
+  // send longurl to api
+  // recieve shortenedurl from api
+  // setting state
+  // const [input, setInput] = useState('');
+
+  // handle submit (validation, send to api, receive shortenedURL and display ResultBox)
+
   return (
     <div>
       <Header
@@ -15,12 +22,12 @@ function App() {
         altText="Jisc University logo"
       />
       <InputForm
-        labelText="Enter the URL:"
+        labelText="Enter Long URL"
         inputPlaceholder="www.example.jiscuniversity.com"
         buttonText="Shorten this URL"
       />
       <ResultBox
-        labelText="Shortened URL:"
+        labelText="Shortened URL"
         buttonText="Copy"
       />
     </div>

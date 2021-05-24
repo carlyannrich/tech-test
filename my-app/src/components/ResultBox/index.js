@@ -1,54 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { styled } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { StyledResultBox, StyledBox } from './ResultBox.style';
 
-const StyledBox = styled(Box)({
-  background: '#fff',
-  border: 'solid',
-  borderWidth: '1px',
-  borderRadius: '50px',
-  color: '#000',
-  padding: '1% 0 1% 0',
-  width: '50%',
-  margin: '2% auto',
-});
+const ResultBox = ({ labelText, inputPlaceholder, buttonText }) => {
+  const copyToClipboard = () => {
+    // const [isCopied, setCopied] = React.useState(false);
 
-const StyledTypography = styled(Typography)({
-  color: '#000',
-  margin: '2% 5% 1% 5%',
-  fontSize: '1.5rem',
-  fontWeight: '400',
-});
-
-const StyledTextField = styled(TextField)({
-  color: '#000',
-  margin: '2% 5%',
-  width: '90%',
-});
-
-const StyledButton = styled(Button)({
-  margin: '2% auto',
-  display: 'flex',
-});
-
-const ResultBox = ({ labelText, inputPlaceholder, buttonText }) => (
-  <section>
-    <StyledBox>
-      <form>
-        <StyledTypography component="h2" type="text" htmlFor="result-box">
-          {labelText}
-        </StyledTypography>
-        <StyledTextField id="outlined-basic result-box" variant="outlined" placeholder={inputPlaceholder} />
-        <StyledButton size="large" color="primary" variant="contained" type="submit" onClick={() => { alert('clicked'); }}>{buttonText}</StyledButton>
-      </form>
-    </StyledBox>
-  </section>
-);
+    // function handleCopy(text) {
+    //   if (typeof text === "string" || typeof text == "number") {
+    //     // copy
+    //   } else {
+    //     // don't copy
+    //     console.error(
+    //       `Cannot copy typeof ${typeof text} to clipboard, must be a string or number.`
+    //     );
+    //   }
+    // }
+  };
+  const onClickHandle = copyToClipboard();
+  return (
+    <section>
+      <StyledResultBox>
+        <StyledBox>
+          <form>
+            <Typography
+              component="h2"
+              type="text"
+            >
+              {labelText}
+            </Typography>
+            <TextField
+              className="text-field"
+              id="outlined-basic result-box"
+              variant="outlined"
+              placeholder={inputPlaceholder}
+            />
+            <Button
+              size="large"
+              color="primary"
+              variant="contained"
+              type="submit"
+              onClick={() => onClickHandle()}
+            >
+              {buttonText}
+            </Button>
+          </form>
+        </StyledBox>
+      </StyledResultBox>
+    </section>
+  );
+};
 
 ResultBox.propTypes = {
   labelText: PropTypes.string.isRequired,
