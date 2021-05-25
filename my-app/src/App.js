@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Header from './components/Header/index';
 import InputForm from './components/InputForm/index';
@@ -15,25 +15,21 @@ function App() {
   const short = 'https://example.ly';
 
   // handle click, on form submit (would be if-short)
-  const handleOnClick = (long) => {
-    if (long) {
-      console.log('good');
-    } else {
-      console.log('bad');
-    }
+  const renderResults = () => {
+    <div>
+      { }
+    </div>;
+  };
+
+  const handleOnClick = () => {
+    renderResults();
   };
 
   // send long to api, receive back short.
 
-  // on change effect
-  useEffect(() => {
-    const long = input;
-    console.log('useEffect', long);
-  }, [input]);
-
   // copy to clipboard
   const copyToClipboard = () => {
-  // only works on input field, how to get to with MUI? https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
+    // only works on input field, how to get to with MUI? https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
   };
 
   return (
@@ -46,12 +42,14 @@ function App() {
       <InputForm
         inputPlaceholder="www.example.jiscuniversity.com"
         buttonText="Shorten this URL"
-        onSubmit={() => handleOnClick(input)}
+        onSubmit={() => handleOnClick()}
         value={input}
         onChange={(event) => setInput(event.target.value)}
         // eslint-disable-next-line no-useless-escape
         regexURL="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
-        onClick={() => handleOnClick(input)}
+        onClick={() => handleOnClick()}
+        label="Enter Long URL here"
+        helperText="Please use University URLs with the structure: jiscuniversity.com"
       />
       <ResultBox
         labelText="Shortened URL"
@@ -59,6 +57,7 @@ function App() {
         value={short}
         onClick={copyToClipboard}
       />
+
     </div>
   );
 }

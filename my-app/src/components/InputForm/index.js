@@ -5,7 +5,7 @@ import { TextField, Button } from '@material-ui/core';
 import { StyledInputForm, StyledBox } from './InputForm.style';
 
 const InputForm = ({
-  inputPlaceholder, buttonText, onSubmit, onChange, regexURL, onClick,
+  inputPlaceholder, buttonText, onSubmit, onChange, regexURL, onClick, label, helperText,
 }) => (
   <section>
     <StyledInputForm>
@@ -21,8 +21,8 @@ const InputForm = ({
             type="text"
             required
             inputProps={{ pattern: regexURL }}
-            label="Enter Long URL here"
-            helperText="Please use University URLs with the structure - ' jiscuniversity.com '."
+            label={label}
+            helperText={helperText}
           />
           <Button
             size="large"
@@ -46,6 +46,8 @@ InputForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   regexURL: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+  helperText: PropTypes.string.isRequired,
 };
 
 export default InputForm;

@@ -38,17 +38,17 @@ h2 {
 
 .text-field {
     color: #000;
-    margin: 2% 15%;
-    width: 70%;
+    margin: 0 5%;
+    width: 90%;
 
     @media ${device.tablet} {
-        margin: 2% 25%;
-        width: 50%;
+        margin: 2% 35%;
+        width: 30%;
     }
 
     @media ${device.laptop} {
-        margin: 2% 25%;
-        width: 50%;
+        margin: 2% 40%;
+        width: 20%;
     }
 }
 

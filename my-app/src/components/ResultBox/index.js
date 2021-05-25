@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import { StyledResultBox, StyledBox } from './ResultBox.style';
 
 const ResultBox = ({
-  labelText, buttonText, value, onClick,
+  labelText = 'Title', buttonText = 'Click Me', value, onClick,
 }) => (
   <section>
     <StyledResultBox>
@@ -23,6 +23,7 @@ const ResultBox = ({
             className="text-field"
             id="outlined-basic result-box"
             variant="outlined"
+            fullWidth
             value={value}
             onFocus={(event) => {
               event.target.select();
