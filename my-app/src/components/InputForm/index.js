@@ -5,7 +5,7 @@ import { TextField, Button } from '@material-ui/core';
 import { StyledInputForm, StyledBox } from './InputForm.style';
 
 const InputForm = ({
-  inputPlaceholder, buttonText, onSubmit, onChange, regexURL, onClick, label, helperText,
+  inputPlaceholder, buttonText, onSubmit, onChange, regexURL, label, helperText,
 }) => (
   <section>
     <StyledInputForm>
@@ -29,7 +29,6 @@ const InputForm = ({
             color="primary"
             variant="contained"
             type="submit"
-            onClick={onClick}
           >
             {buttonText}
           </Button>
@@ -45,7 +44,6 @@ InputForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   regexURL: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   helperText: PropTypes.string.isRequired,
 };

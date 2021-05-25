@@ -9,20 +9,22 @@ import './App.css';
 function App() {
   // setting state
   const [input, setInput] = useState('');
+  const [buttonClicked, setButtonClicked] = useState(false);
   // const [short, setShort] = useState('');
 
   // temporary value for short
   const short = 'https://example.ly';
 
   // handle click, on form submit (would be if-short)
-  const renderResults = () => {
-    <div>
-      { }
-    </div>;
-  };
+  // const renderResults = () => {
+  //   <div>
+  //     { }
+  //   </div>;
+  // };
 
-  const handleOnClick = () => {
-    renderResults();
+  const handleOnClick = (event) => {
+    event.preventDefault();
+    setButtonClicked(true);
   };
 
   // send long to api, receive back short.
@@ -42,7 +44,7 @@ function App() {
       <InputForm
         inputPlaceholder="www.example.jiscuniversity.com"
         buttonText="Shorten this URL"
-        onSubmit={() => handleOnClick()}
+        onSubmit={(event) => handleOnClick(event)}
         value={input}
         onChange={(event) => setInput(event.target.value)}
         // eslint-disable-next-line no-useless-escape
@@ -51,12 +53,14 @@ function App() {
         label="Enter Long URL here"
         helperText="Please use University URLs with the structure: jiscuniversity.com"
       />
+      {buttonClicked && (
       <ResultBox
         labelText="Shortened URL"
         buttonText="Copy"
         value={short}
         onClick={copyToClipboard}
       />
+      )}
 
     </div>
   );
