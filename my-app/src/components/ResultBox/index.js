@@ -6,7 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { StyledResultBox, StyledBox } from './ResultBox.style';
 
-const ResultBox = ({ labelText, inputPlaceholder, buttonText }) => {
+const ResultBox = ({
+  labelText, buttonText, value,
+}) => {
   const copyToClipboard = () => {
     // const [isCopied, setCopied] = React.useState(false);
 
@@ -37,7 +39,7 @@ const ResultBox = ({ labelText, inputPlaceholder, buttonText }) => {
               className="text-field"
               id="outlined-basic result-box"
               variant="outlined"
-              placeholder={inputPlaceholder}
+              value={value}
             />
             <Button
               size="large"
@@ -57,8 +59,8 @@ const ResultBox = ({ labelText, inputPlaceholder, buttonText }) => {
 
 ResultBox.propTypes = {
   labelText: PropTypes.string.isRequired,
-  inputPlaceholder: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default ResultBox;

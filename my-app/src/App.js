@@ -8,9 +8,10 @@ import imgSrc from './assets/logo.png';
 
 function App() {
   // send longurl to api
-  // recieve shortenedurl from api
+  // recieve shortenedurl from api const getlink
   // setting state
   // const [input, setInput] = useState('');
+  const short = 'https://example.ly';
 
   // handle submit (validation, send to api, receive shortenedURL and display ResultBox)
 
@@ -29,6 +30,7 @@ function App() {
       <ResultBox
         labelText="Shortened URL"
         buttonText="Copy"
+        value={short}
       />
     </div>
   );
