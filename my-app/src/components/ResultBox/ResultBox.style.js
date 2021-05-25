@@ -11,7 +11,7 @@ export const StyledBox = styled(Box)({
   color: '#000',
   padding: '1% 0 1% 0',
   width: '80%',
-  margin: '2% auto',
+  margin: '3% auto',
 });
 
 export const StyledResultBox = styled.div`
@@ -24,13 +24,15 @@ h2 {
     padding: 4% 0;
 
      @media ${device.tablet} {
-         font-size: 1rem;
-         padding: 0;
+        font-size: 1rem;
+        padding: 0;
+        margin: 2% 5% 1% 5%;
     }
 
     @media ${device.laptop} {
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding: 0;
+        margin: 1% 5% 0 5%;
     }
 }
 
@@ -59,7 +61,7 @@ button {
     }
 
     @media ${device.laptop} {
-        margin: 2% auto;
+        margin: 1% auto;
     }
 }
 

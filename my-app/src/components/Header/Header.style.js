@@ -3,14 +3,16 @@ import styled from 'styled-components';
 import device from '../../assets/device';
 
 const StyledHeader = styled.header`
-margin: 5% 0;
+width: 100%;
+background-color: white;
+padding: 5% 0;
 
     @media ${device.tablet} {
-        margin: 2% 0;
+        padding: 2% 0;
     }
 
     @media ${device.laptop} {
-        margin: 0;
+        padding: 0;
     }
 
 img {
@@ -33,18 +35,20 @@ img {
 h1 {
     font-size: 1.3rem;
     padding: 3% 0 3% 45%;
-    width: 50%;
+
+    @media ${device.mobileM} {
+        font-size: 1.7rem;
+        padding: 3% 0 3% 45%;
+    }
 
     @media ${device.tablet} {
         font-size: 2rem;
         padding: 5% 0 3% 35%;
-        width: 70%;
     }
 
     @media ${device.laptop} {
         font-size: 2.5rem;
         padding: 5% 0 3% 52%;
-        width: 100%;
     }
 }
 

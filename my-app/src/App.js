@@ -1,19 +1,40 @@
-import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from './components/Header/index';
 import InputForm from './components/InputForm/index';
 import ResultBox from './components/ResultBox/index';
 import imgSrc from './assets/logo.png';
+import './App.css';
 
 function App() {
-  // send longurl to api
-  // recieve shortenedurl from api const getlink
   // setting state
-  // const [input, setInput] = useState('');
+  const [input, setInput] = useState('');
+  // const [short, setShort] = useState('');
+
+  // temporary value for short
   const short = 'https://example.ly';
 
-  // handle submit (validation, send to api, receive shortenedURL and display ResultBox)
+  // handle click, on form submit (would be if-short)
+  const handleOnClick = (long) => {
+    if (long) {
+      console.log('good');
+    } else {
+      console.log('bad');
+    }
+  };
+
+  // send long to api, receive back short.
+
+  // on change effect
+  useEffect(() => {
+    const long = input;
+    console.log('useEffect', long);
+  }, [input]);
+
+  // copy to clipboard
+  const copyToClipboard = () => {
+  // only works on input field, how to get to with MUI? https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
+  };
 
   return (
     <div>
@@ -23,14 +44,20 @@ function App() {
         altText="Jisc University logo"
       />
       <InputForm
-        labelText="Enter Long URL"
         inputPlaceholder="www.example.jiscuniversity.com"
         buttonText="Shorten this URL"
+        onSubmit={() => handleOnClick(input)}
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
+        // eslint-disable-next-line no-useless-escape
+        regexURL="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+        onClick={() => handleOnClick(input)}
       />
       <ResultBox
         labelText="Shortened URL"
         buttonText="Copy"
         value={short}
+        onClick={copyToClipboard}
       />
     </div>
   );
