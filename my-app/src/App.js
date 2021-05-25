@@ -12,22 +12,15 @@ function App() {
   const [buttonClicked, setButtonClicked] = useState(false);
   // const [short, setShort] = useState('');
 
+  // send long to api, receive back short.
+
   // temporary value for short
   const short = 'https://example.ly';
-
-  // handle click, on form submit (would be if-short)
-  // const renderResults = () => {
-  //   <div>
-  //     { }
-  //   </div>;
-  // };
 
   const handleOnClick = (event) => {
     event.preventDefault();
     setButtonClicked(true);
   };
-
-  // send long to api, receive back short.
 
   // copy to clipboard
   const copyToClipboard = () => {
