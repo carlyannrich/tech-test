@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TextField, Button } from '@material-ui/core';
-import { StyledInputForm, StyledBox } from './InputForm.style';
+import { TextField, Button, Box } from '@material-ui/core';
+
+import styles from './InputForm.style';
 
 const InputForm = ({
   inputPlaceholder, buttonText, onSubmit, onChange, regexURL, label, helperText,
-}) => (
-  <section>
-    <StyledInputForm>
-      <StyledBox>
+  props,
+}) => {
+  const classes = styles(props);
+  return (
+    <section>
+      <Box classes={{ root: classes.root }}>
         <form onSubmit={onSubmit}>
           <TextField
             className="text-field"
@@ -33,10 +36,10 @@ const InputForm = ({
             {buttonText}
           </Button>
         </form>
-      </StyledBox>
-    </StyledInputForm>
-  </section>
-);
+      </Box>
+    </section>
+  );
+};
 
 InputForm.propTypes = {
   inputPlaceholder: PropTypes.string.isRequired,
@@ -46,6 +49,7 @@ InputForm.propTypes = {
   regexURL: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   helperText: PropTypes.string.isRequired,
+  props: PropTypes.string.isRequired,
 };
 
 export default InputForm;
