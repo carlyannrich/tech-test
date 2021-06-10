@@ -2,14 +2,23 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles((theme) => ({
   root: {
-    background: theme.palette.background,
+    background: theme.palette.background.paper,
     border: 'solid',
     borderWidth: '1px',
     borderRadius: '50px',
-    color: '#000',
-    padding: '1% 0 1% 0',
+    color: '#fff',
     width: '80%',
     margin: '2% auto',
+    padding: theme.spacing(8, 0, 6),
+  },
+
+  button: {
+    margin: '2% 40%',
+  },
+
+  textField: {
+    width: '80%',
+    margin: '2% 10%',
   },
 }));
 

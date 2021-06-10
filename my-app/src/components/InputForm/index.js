@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,7 +13,7 @@ const InputForm = ({
   const classes = styles(props);
   return (
     <section>
-      <Box classes={{ root: classes.root }}>
+      <Box className={classes.root}>
         <form onSubmit={onSubmit}>
           <TextField
             className="text-field"
@@ -26,12 +27,14 @@ const InputForm = ({
             inputProps={{ pattern: regexURL }}
             label={label}
             helperText={helperText}
+            className={classes.textField}
           />
           <Button
             size="large"
             color="primary"
             variant="contained"
             type="submit"
+            className={classes.button}
           >
             {buttonText}
           </Button>

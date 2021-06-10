@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
   palette: {
-    background: '#fff',
+    background: '#fffff',
   },
   typography: {
     h1: {
