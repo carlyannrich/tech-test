@@ -1,15 +1,19 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TextField, Button } from '@material-ui/core';
-import { StyledInputForm, StyledBox } from './InputForm.style';
+import { TextField, Button, Box } from '@material-ui/core';
+
+import styles from './InputForm.style';
 
 const InputForm = ({
   inputPlaceholder, buttonText, onSubmit, onChange, regexURL, label, helperText,
-}) => (
-  <section>
-    <StyledInputForm>
-      <StyledBox>
+  props,
+}) => {
+  const classes = styles(props);
+  return (
+    <section>
+      <Box className={classes.root}>
         <form onSubmit={onSubmit}>
           <TextField
             className="text-field"
@@ -23,20 +27,22 @@ const InputForm = ({
             inputProps={{ pattern: regexURL }}
             label={label}
             helperText={helperText}
+            className={classes.textField}
           />
           <Button
             size="large"
             color="primary"
             variant="contained"
             type="submit"
+            className={classes.button}
           >
             {buttonText}
           </Button>
         </form>
-      </StyledBox>
-    </StyledInputForm>
-  </section>
-);
+      </Box>
+    </section>
+  );
+};
 
 InputForm.propTypes = {
   inputPlaceholder: PropTypes.string.isRequired,
@@ -46,6 +52,7 @@ InputForm.propTypes = {
   regexURL: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   helperText: PropTypes.string.isRequired,
+  props: PropTypes.string.isRequired,
 };
 
 export default InputForm;
